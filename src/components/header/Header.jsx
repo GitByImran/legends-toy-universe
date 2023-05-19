@@ -50,7 +50,14 @@ const Header = () => {
               </Link>
             </Nav>
             <Nav className="ms-auto my-4 d-block">
-              <Button className="text-capitalize px-4">Sign In</Button>
+              <Button className="text-capitalize px-4 text-light">
+                <Link
+                  to="/login"
+                  className="nav-menu text-decoration-none text-light"
+                >
+                  Sign In
+                </Link>
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>

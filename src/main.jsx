@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import StaticRoot from "./components/static-root/StaticRoot";
 import Home from "./components/home/Home";
 import AllToys from "./components/all-toys/AllToys";
+import Register from "./authentication/register/Register";
+import Login from "./authentication/login/Login";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: "alltoys",
         element: <AllToys />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
       },
     ],
   },

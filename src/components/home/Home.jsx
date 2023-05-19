@@ -1,9 +1,18 @@
 import React from "react";
+import Banner from "./contents/Banner";
+import Gallery from "./contents/Gallery";
+import Shop from "./contents/Shop";
+import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
+  const toyData = useLoaderData();
+
   return (
     <div>
-      <h2>home</h2>
+      <Banner />
+      <Gallery />
+
+      <Shop toyData={toyData} />
     </div>
   );
 };

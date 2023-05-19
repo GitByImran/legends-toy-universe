@@ -10,7 +10,9 @@ const AllToys = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/toys");
+        const response = await axios.get(
+          "https://legends-toy-universe-server-gitsbyimran.vercel.app/toys"
+        );
         setData(response.data);
         setLoading(false);
       } catch (error) {

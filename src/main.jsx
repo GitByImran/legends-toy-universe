@@ -8,6 +8,9 @@ import Home from "./components/home/Home";
 import AllToys from "./components/all-toys/AllToys";
 import Register from "./authentication/register/Register";
 import Login from "./authentication/login/Login";
+import Provider from "./authentication/provider/Provider";
+import Blog from "./components/blog/Blog";
+import MyToys from "./components/my-toys/MyToys";
 
 const router = createBrowserRouter([
   {
@@ -17,10 +20,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () =>
+          fetch(
+            "https://legends-toy-universe-server-gitsbyimran.vercel.app/toys"
+          ),
       },
       {
         path: "alltoys",
         element: <AllToys />,
+      },
+      {
+        path: "mytoys",
+        element: <MyToys />,
       },
       {
         path: "login",
@@ -29,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
       },
     ],
   },
@@ -40,6 +55,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <Provider>
+      <RouterProvider router={router}></RouterProvider>
+    </Provider>
   </React.StrictMode>
 );

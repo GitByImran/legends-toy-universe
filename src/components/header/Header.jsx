@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../authentication/provider/Provider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -42,22 +53,59 @@ const Header = () => {
               <Link to="/alltoys" className="nav-menu text-decoration-none">
                 All Toys
               </Link>
-              <Link to="" className="nav-menu text-decoration-none">
+              <Link to="/mytoys" className="nav-menu text-decoration-none">
                 My Toys
               </Link>
-              <Link to="" className="nav-menu text-decoration-none">
+              <Link to="/blog" className="nav-menu text-decoration-none">
                 Blogs
               </Link>
             </Nav>
-            <Nav className="ms-auto my-4 d-block">
-              <Button className="text-capitalize px-4 text-light">
-                <Link
-                  to="/login"
-                  className="nav-menu text-decoration-none text-light"
+            <Nav className="ms-auto my-4 d-flex align-items-center">
+              <Dropdown>
+                <Dropdown.Toggle
+                  id="dropdown-basic"
+                  style={{ background: "none", border: "none" }}
                 >
-                  Sign In
-                </Link>
-              </Button>
+                  <div className="profile">
+                    <img
+                      src={
+                        user
+                          ? user.photoURL
+                          : "https://i.ibb.co/K59MRv9/image.png"
+                      }
+                      alt=""
+                    />
+                  </div>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#">{user?.displayName}</Dropdown.Item>
+                  <Dropdown.Item href="#">{user?.email}</Dropdown.Item>
+                  <Dropdown.Item href="#">{user?.uid}</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+              {user ? (
+                <div>
+                  <Button className="text-capitalize px-4 text-light">
+                    <Link
+                      onClick={handleLogOut}
+                      to="#"
+                      className="nav-menu text-decoration-none text-light"
+                    >
+                      Sign Out
+                    </Link>
+                  </Button>
+                </div>
+              ) : (
+                <Button className="text-capitalize px-4 text-light">
+                  <Link
+                    to="/login"
+                    className="nav-menu text-decoration-none text-light"
+                  >
+                    Sign In
+                  </Link>
+                </Button>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

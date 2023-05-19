@@ -7,3 +7,19 @@
   font-size: 1.2rem;
   font-weight: 500;
 }
+.profile {
+  width: 45px;
+  height: 45px;
+  overflow: hidden;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.dropdown-toggle::after {
+  position: absolute;
+  visibility: hidden;
+}

@@ -1,0 +1,10 @@
+.all-toys {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.all-toys-picture {
+  height: 300px;
+  width: 100%;
+  object-fit: contain;
+}

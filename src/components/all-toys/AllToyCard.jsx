@@ -3,8 +3,7 @@ import { Button, Card } from "react-bootstrap";
 import "./AllToys.css";
 import { Link } from "react-router-dom";
 
-const AllToyCard = ({ item }) => {
-  console.log(item);
+const AllToyCard = ({ item, index }) => {
   const {
     _id,
     category,
@@ -19,7 +18,7 @@ const AllToyCard = ({ item }) => {
   } = item;
   return (
     <tr>
-      <td>{serial}</td>
+      <td>{index + 1}</td>
       <td>{seller}</td>
       <td>{toyName}</td>
       <td>{subcategory}</td>

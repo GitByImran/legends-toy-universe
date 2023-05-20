@@ -1,0 +1,11 @@
+.my-toy-image {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;border: 1px solid green;
+}
+.my-toy-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}

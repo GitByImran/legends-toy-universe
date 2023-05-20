@@ -86,7 +86,7 @@ const Shop = ({ toyData }) => {
           <Row className="w-100 shop-category-toys">
             {data.slice(0, 2).map((item) => (
               <>
-                <div key={item.id} className="m-0 p-0">
+                <div key={item._id} className="m-0 p-0">
                   <Card
                     style={{ width: "100%" }}
                     className="d-flex flex-row align-items-center gap-3 md: d-block"

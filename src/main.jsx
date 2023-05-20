@@ -11,6 +11,7 @@ import Login from "./authentication/login/Login";
 import Provider from "./authentication/provider/Provider";
 import Blog from "./components/blog/Blog";
 import MyToys from "./components/my-toys/MyToys";
+import AddToy from "./components/add-toy/AddToy";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "alltoys",
         element: <AllToys />,
+      },
+      {
+        path: "addtoy",
+        element: <AddToy />,
       },
       {
         path: "mytoys",

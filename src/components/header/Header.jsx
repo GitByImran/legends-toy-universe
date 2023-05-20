@@ -53,6 +53,9 @@ const Header = () => {
               <Link to="/alltoys" className="nav-menu text-decoration-none">
                 All Toys
               </Link>
+              <Link to="/addtoy" className="nav-menu text-decoration-none">
+                Add Toy
+              </Link>
               <Link to="/mytoys" className="nav-menu text-decoration-none">
                 My Toys
               </Link>

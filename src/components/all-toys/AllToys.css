@@ -1,0 +1,11 @@
+.search-bar.text-center.py-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-btn {
+    background: #006699;
+    color: #fff;
+    border: none;
+    height: 35px;
+}

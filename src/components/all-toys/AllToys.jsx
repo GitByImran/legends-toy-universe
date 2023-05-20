@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AllToyCard from "./AllToyCard";
+import "./AllToys.css";
 import { Container, Table } from "react-bootstrap";
 
 const AllToys = () => {
@@ -53,20 +54,25 @@ const AllToys = () => {
   return (
     <div>
       <Container>
-        <h4 className="my-3 text-center">
-          Displaying all toys: {filteredData.length}
-        </h4>
-
-        <div className="search-bar">
+        <div className="search-bar text-center pt-5 pb-3">
           <input
             type="text"
             value={searchQuery}
             onChange={handleSearchChange}
             onKeyPress={handleKeyPress}
             placeholder="Search by toy name"
+            style={{
+              height: "35px",
+              padding: "0 10px",
+              outlineColor: "#006699",
+            }}
           />
-          <button onClick={handleSearch}>Search</button>
+          <button className="search-btn px-3" onClick={handleSearch}>
+            Search
+          </button>
         </div>
+
+        <p className="text-center">Displaying toys: {filteredData.length}</p>
 
         <div className="all-toys">
           <Table striped bordered hover>

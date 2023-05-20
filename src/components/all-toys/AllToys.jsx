@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AllToyCard from "./AllToyCard";
-import { Container } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 
 const AllToys = () => {
   const [data, setData] = useState([]);
@@ -26,16 +26,34 @@ const AllToys = () => {
   return (
     <div>
       <Container>
-        <h2>Loading toys : {data.length}</h2>
+        <h4 className="my-3 text-center">
+          Displaying all toys : {data.length}
+        </h4>
 
         <div className="all-toys">
-          {!loading &&
-            data.map((item) => (
-              <AllToyCard key={item._id} item={item}></AllToyCard>
-            ))}
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Product Seller</th>
+                <th>Toy Name</th>
+                <th>Sub-category</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {!loading &&
+                data.map((item) => (
+                  <AllToyCard key={item._id} item={item}></AllToyCard>
+                ))}
+            </tbody>
+          </Table>
         </div>
       </Container>
     </div>
   );
 };
 export default AllToys;
+

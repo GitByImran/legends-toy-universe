@@ -84,32 +84,46 @@ const Shop = ({ toyData }) => {
             </Col>
           </Row>
           <Row className="w-100 shop-category-toys">
-            {data.map((item) => (
-              <div key={item.id} className="m-0 p-0">
-                <Card
-                  style={{ width: "100%" }}
-                  className="d-flex flex-row align-items-center"
-                >
-                  <Card.Img
-                    variant="top"
-                    src={item.picture}
-                    style={{
-                      width: "auto",
-                      height: "200px",
-                      objectFit: "contain",
-                      padding: "20px",
-                    }}
-                  />
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">view details</Button>
-                  </Card.Body>
-                </Card>
-              </div>
+            {data.slice(0, 2).map((item) => (
+              <>
+                <div key={item.id} className="m-0 p-0">
+                  <Card
+                    style={{ width: "100%" }}
+                    className="d-flex flex-row align-items-center gap-3 md: d-block"
+                  >
+                    <Card.Img
+                      variant="top"
+                      src={item.picture}
+                      style={{
+                        width: "auto",
+                        height: "200px",
+                        objectFit: "contain",
+                        padding: "20px",
+                      }}
+                    />
+                    <Card.Body>
+                      <Card.Title>{item.toyName}</Card.Title>
+                      <Card.Text className="m-0 py-1">
+                        Price : {item.price}
+                      </Card.Text>
+                      <Card.Text className="m-0 py-1">
+                        Ratings : {item.rating}
+                      </Card.Text>
+                      <Button
+                        variant="primary"
+                        className="mt-2 fw-semibold text-capitalize"
+                        style={{
+                          background: "#afe3f3",
+                          color: "#000",
+                          border: "none",
+                        }}
+                      >
+                        view details
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </>
             ))}
           </Row>
         </div>

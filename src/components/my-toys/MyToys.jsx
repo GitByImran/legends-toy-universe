@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../authentication/provider/Provider";
-import { Container } from "react-bootstrap";
+import { Container, Tab, Table } from "react-bootstrap";
 import MyToysCard from "./MyToysCard";
+import { motion } from "framer-motion";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -60,18 +61,44 @@ const MyToys = () => {
           </button>
           {/* Add more sorting options if needed */}
         </div>
-        {details.map((toys) => (
-          <MyToysCard
-            key={toys._id}
-            toys={toys}
-            handleDelete={handleDelete}
-            setUpdateTrigger={setUpdateTrigger}
-            handleUpdateSuccess={handleUpdateSuccess}
-          />
-        ))}
+        <motion.div
+          key={details.length}
+          animate={{ opacity: 1, transition: { duration: 0.5 } }}
+          initial={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          layout
+          className="all-toys"
+        >
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Product Seller</th>
+                <th>Toy Name</th>
+                <th>Sub-category</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {details.map((toys, index) => (
+                <MyToysCard
+                  key={toys._id}
+                  toys={toys}
+                  index={index}
+                  handleDelete={handleDelete}
+                  setUpdateTrigger={setUpdateTrigger}
+                  handleUpdateSuccess={handleUpdateSuccess}
+                />
+              ))}
+            </tbody>
+          </Table>
+        </motion.div>
       </Container>
     </div>
   );
 };
 
 export default MyToys;
+

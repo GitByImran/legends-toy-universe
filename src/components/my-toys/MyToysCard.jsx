@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./MyToys.css";
 import { Card, Button, Modal } from "react-bootstrap";
 import UpdateToy from "./contents/UpdateToy";
+import { Link } from "react-router-dom";
 
-const MyToysCard = ({ toys, handleDelete, setUpdateTrigger }) => {
+const MyToysCard = ({ toys, index, handleDelete, setUpdateTrigger }) => {
   const {
     _id,
     picture,
@@ -18,6 +19,7 @@ const MyToysCard = ({ toys, handleDelete, setUpdateTrigger }) => {
     serial,
     description,
   } = toys;
+  console.log(toys);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -34,45 +36,31 @@ const MyToysCard = ({ toys, handleDelete, setUpdateTrigger }) => {
   };
 
   return (
-    <div>
-      <Card className="p-3 my-3 my-toy-card">
-        <div className="my-toy-image">
-          <Card.Img variant="top" src={picture} />
-        </div>
-
-        <Card.Body className="">
-          <Card.Title className="m-0 fs-4 fw-bold text-capitalize">
-            {toyName}
-          </Card.Title>
-          <Card.Text className="m-0 mb-4 text-capitalize text-muted">
-            {subcategory}
-          </Card.Text>
-        </Card.Body>
-
-        <Card.Body className="">
-          <Card.Text className="m-0 fw-bold">
-            $<span className="m-1">{price}</span>
-          </Card.Text>
-          <Card.Text className="m-0"> {rating}</Card.Text>
-        </Card.Body>
-
-        <Card.Body>
-          <Button variant="primary" className="d-block">
-            View details
-          </Button>
-          <Button onClick={handleUpdate} variant="primary" className="d-block">
+    <>
+      <tr>
+        <td>{index + 1}</td>
+        <td>{seller}</td>
+        <td>{toyName}</td>
+        <td>{subcategory}</td>
+        <td>{price}</td>
+        <td>{quantity}</td>
+        <td className="text-center fw-bold">
+          <Link className="text-decoration-none">Details</Link>
+        </td>
+        <td className="text-center fw-bold">
+          <Link className="text-decoration-none" onClick={handleUpdate}>
             Update
-          </Button>
-          <Button
+          </Link>
+        </td>
+        <td className="text-center fw-bold">
+          <Link
+            className="text-decoration-none"
             onClick={() => handleDelete(_id)}
-            variant="primary"
-            className="d-block"
           >
             Delete
-          </Button>
-        </Card.Body>
-      </Card>
-
+          </Link>
+        </td>
+      </tr>
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Update Toy</Modal.Title>
@@ -85,7 +73,7 @@ const MyToysCard = ({ toys, handleDelete, setUpdateTrigger }) => {
           />
         </Modal.Body>
       </Modal>
-    </div>
+    </>
   );
 };
 

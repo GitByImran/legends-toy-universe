@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Button, Container } from "react-bootstrap";
 import { AuthContext } from "../provider/Provider";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, user } = useContext(AuthContext);
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -26,6 +28,12 @@ const Register = () => {
         setError(error.message);
       });
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   return (
     <>

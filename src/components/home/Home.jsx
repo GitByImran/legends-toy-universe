@@ -4,6 +4,7 @@ import Gallery from "./contents/Gallery";
 import Shop from "./contents/Shop";
 import { useLoaderData } from "react-router-dom";
 import TestimonialSection from "./contents/TestimonialSection";
+import FeaturedToysSection from "./contents/FeaturedToysSection";
 
 const Home = () => {
   const toyData = useLoaderData();
@@ -13,6 +14,7 @@ const Home = () => {
       <Banner />
       <Gallery />
       <Shop toyData={toyData} />
+      <FeaturedToysSection />
       <TestimonialSection />
     </div>
   );

@@ -79,6 +79,7 @@ const Provider = ({ children }) => {
     signIn,
     logOut,
     loading,
+    setLoading,
     googleRegister,
     updateUserProfile,
     userFound,

@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Form, Button } from "react-bootstrap";
 
-const UpdateToy = ({ toyId, handleClose }) => {
-  const [toyData, setToyData] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  console.log(toyId);
+const UpdateToy = ({ toyId, handleClose, handleUpdateSuccess }) => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -26,11 +22,14 @@ const UpdateToy = ({ toyId, handleClose }) => {
       body: JSON.stringify(updateToDb),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        handleUpdateSuccess(); // Call the handleUpdateSuccess function
+        handleClose(); // Close the modal
+      });
 
     form.reset();
   };
-
   return (
     <div>
       <Form onSubmit={handleUpdate}>

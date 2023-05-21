@@ -6,6 +6,7 @@ import MyToysCard from "./MyToysCard";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [details, setDetails] = useState([]);
+  const [updateTrigger, setUpdateTrigger] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -31,16 +32,29 @@ const MyToys = () => {
     }
   };
 
+  const handleUpdateSuccess = () => {
+    setUpdateTrigger((prevTrigger) => !prevTrigger);
+  };
+
+  useEffect(() => {
+    fetch(
+      `https://legends-toy-universe-server.vercel.app/toys?email=${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => setDetails(data));
+  }, [user, updateTrigger]);
 
   return (
     <div>
-      <h2>My total toys : {details.length}</h2>
+      <p className="text-center">Displaying your toys : {details.length}</p>
       <Container>
         {details.map((toys) => (
           <MyToysCard
             key={toys._id}
             toys={toys}
             handleDelete={handleDelete}
+            setUpdateTrigger={setUpdateTrigger}
+            handleUpdateSuccess={handleUpdateSuccess} // Pass the setUpdateTrigger function as a prop
           ></MyToysCard>
         ))}
       </Container>

@@ -3,7 +3,7 @@ import "./MyToys.css";
 import { Card, Button, Modal } from "react-bootstrap";
 import UpdateToy from "./contents/UpdateToy";
 
-const MyToysCard = ({ toys, handleDelete }) => {
+const MyToysCard = ({ toys, handleDelete, setUpdateTrigger }) => {
   const {
     _id,
     picture,
@@ -27,6 +27,10 @@ const MyToysCard = ({ toys, handleDelete }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const handleUpdateSuccess = () => {
+    setUpdateTrigger((prevTrigger) => !prevTrigger);
   };
 
   return (
@@ -74,7 +78,11 @@ const MyToysCard = ({ toys, handleDelete }) => {
           <Modal.Title>Update Toy</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <UpdateToy toyId={_id} handleClose={handleCloseModal} />
+          <UpdateToy
+            toyId={_id}
+            handleClose={handleCloseModal}
+            handleUpdateSuccess={handleUpdateSuccess} // Pass the handleUpdateSuccess function as a prop
+          />
         </Modal.Body>
       </Modal>
     </div>

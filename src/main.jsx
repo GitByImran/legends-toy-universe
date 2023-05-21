@@ -12,6 +12,7 @@ import Provider from "./authentication/provider/Provider";
 import Blog from "./components/blog/Blog";
 import MyToys from "./components/my-toys/MyToys";
 import AddToy from "./components/add-toy/AddToy";
+import Error from "./components/error-page/Error";
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h2>error</h2>,
+    element: <Error />,
   },
 ]);
 

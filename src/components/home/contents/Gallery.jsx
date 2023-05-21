@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { Link, Element } from "react-scroll";
+import { motion } from "framer-motion";
 import { Container } from "react-bootstrap";
 import "../Home.css";
 
 const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const controls = useAnimation();
 
   const images = [
     "https://dummyimage.com/400x300/000/fff",
@@ -29,32 +27,19 @@ const GallerySection = () => {
     setSelectedImage(null);
   };
 
-  const handleScroll = () => {
-    controls.start({ opacity: 1 });
-  };
-
   return (
     <Container>
       <div className="gallery-section">
         <h2>Gallery</h2>
         <div className="gallery-grid">
           {images.map((image, index) => (
-            <Link
+            <div
               key={index}
-              to={`image${index + 1}`}
-              smooth={true}
-              duration={500}
-              onSetActive={handleScroll}
+              className="gallery-item"
+              onClick={() => handleImageClick(image)}
             >
-              <motion.div
-                className="gallery-item"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => handleImageClick(image)}
-              >
-                <img src={image} alt={`Image ${index + 1}`} />
-              </motion.div>
-            </Link>
+              <img src={image} alt={`Image ${index + 1}`} />
+            </div>
           ))}
         </div>
 
@@ -70,19 +55,6 @@ const GallerySection = () => {
             </motion.div>
           </div>
         )}
-
-        <Element name="image1" className="image-placeholder" />
-        <Element name="image2" className="image-placeholder" />
-        <Element name="image3" className="image-placeholder" />
-        {/* Add more Elements for each image */}
-
-        <motion.div
-          className="scroll-hint"
-          initial={{ opacity: 0 }}
-          animate={controls}
-        >
-          Scroll to Explore
-        </motion.div>
       </div>
     </Container>
   );

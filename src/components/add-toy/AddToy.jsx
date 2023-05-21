@@ -15,6 +15,7 @@ const AddToy = () => {
     const serial = "20";
     const category = "Action Figure";
     const subcategory = form.subcategory.value;
+    const description = form.description.value;
     const addToDb = {
       picture,
       toyName,
@@ -26,9 +27,10 @@ const AddToy = () => {
       subcategory,
       category,
       serial,
+      description,
     };
 
-    fetch("http://localhost:5000/toys", {
+    fetch("https://legends-toy-universe-server.vercel.app/toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",

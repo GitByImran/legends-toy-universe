@@ -8,7 +8,9 @@ const MyToys = () => {
   const [details, setDetails] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys?email=${user?.email}`)
+    fetch(
+      `https://legends-toy-universe-server.vercel.app/toys?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setDetails(data));
   }, [user]);
@@ -16,7 +18,7 @@ const MyToys = () => {
   const handleDelete = (id) => {
     const proceed = confirm("delete ???????");
     if (proceed) {
-      fetch(`http://localhost:5000/toys/${id}`, {
+      fetch(`https://legends-toy-universe-server.vercel.app/toys/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -28,6 +30,7 @@ const MyToys = () => {
         });
     }
   };
+
 
   return (
     <div>

@@ -3,6 +3,7 @@ import axios from "axios";
 import AllToyCard from "./AllToyCard";
 import "./AllToys.css";
 import { Container, Table } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 const AllToys = () => {
   const [data, setData] = useState([]);
@@ -16,7 +17,6 @@ const AllToys = () => {
         "https://legends-toy-universe-server-gitsbyimran.vercel.app/toys"
       );
       const limitedData = response.data.slice(0, 20);
-      console.log("API Response:", limitedData);
       setData(limitedData);
       setFilteredData(limitedData);
       setLoading(false);
@@ -31,9 +31,7 @@ const AllToys = () => {
 
   const handleSearch = () => {
     const filteredResults = data.filter((item) => {
-      console.log("Item:", item);
       const toySearch = item.toyName;
-      console.log("Toy Name:", toySearch);
       return (
         toySearch && toySearch.toLowerCase().includes(searchQuery.toLowerCase())
       );
@@ -74,7 +72,14 @@ const AllToys = () => {
 
         <p className="text-center">Displaying toys: {filteredData.length}</p>
 
-        <div className="all-toys">
+        <motion.div
+          key={filteredData.length}
+          animate={{ opacity: 1, transition: { duration: 0.5 } }}
+          initial={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          layout
+          className="all-toys"
+        >
           <Table striped bordered hover>
             <thead>
               <tr>
@@ -94,7 +99,7 @@ const AllToys = () => {
                 ))}
             </tbody>
           </Table>
-        </div>
+        </motion.div>
       </Container>
     </div>
   );

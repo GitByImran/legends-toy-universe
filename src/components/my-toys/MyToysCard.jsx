@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MyToys.css";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Modal } from "react-bootstrap";
+import UpdateToy from "./contents/UpdateToy";
 
 const MyToysCard = ({ toys, handleDelete }) => {
   const {
@@ -15,7 +16,18 @@ const MyToysCard = ({ toys, handleDelete }) => {
     subcategory,
     category,
     serial,
+    description,
   } = toys;
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleUpdate = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div>
@@ -33,7 +45,7 @@ const MyToysCard = ({ toys, handleDelete }) => {
           <Button variant="primary" className="d-block">
             View details
           </Button>
-          <Button variant="primary" className="d-block">
+          <Button onClick={handleUpdate} variant="primary" className="d-block">
             Update
           </Button>
           <Button
@@ -45,6 +57,15 @@ const MyToysCard = ({ toys, handleDelete }) => {
           </Button>
         </Card.Body>
       </Card>
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Update Toy</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <UpdateToy toyId={_id} handleClose={handleCloseModal} />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };

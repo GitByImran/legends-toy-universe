@@ -19,7 +19,7 @@ const Banner = () => {
   return (
     <div className="banner">
       <Container>
-        <Row>
+        <Row className="d-flex justify-content-center align-items-center">
           <Col md={6} className="text-col">
             <div className="text-container">
               <h1>Welcome to Our Website</h1>
@@ -35,27 +35,29 @@ const Banner = () => {
           </Col>
           <Col md={6} className="slider-col">
             <Swiper
+              effect="coverflow"
               spaceBetween={0}
+              centeredSlides={true}
               slidesPerView={1}
               pagination={{ clickable: true }}
               autoplay={{ delay: 1000 }}
               loop
             >
-              <SwiperSlide>
+              <SwiperSlide className="slider-image">
                 <img
-                  src="https://dummyimage.com/600x400/000/fff"
+                  src="https://i.ibb.co/kc8fzjG/marvel-34260.png"
                   alt="Slider Image 1"
                 />
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className="slider-image">
                 <img
-                  src="https://dummyimage.com/600x400/111/fff"
+                  src="https://i.ibb.co/W3839Dw/DC-Justice-League-PNG-File.png"
                   alt="Slider Image 2"
                 />
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className="slider-image">
                 <img
-                  src="https://dummyimage.com/600x400/222/fff"
+                  src="https://i.ibb.co/SnjXBdm/pngfind-com-transformers-png-797391.png"
                   alt="Slider Image 3"
                 />
               </SwiperSlide>

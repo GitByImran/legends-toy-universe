@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../Home.css";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import ToyModal from "../../toy-modal/ToyModal";
 
 const Shop = ({ toyData }) => {
   const [data, setData] = useState([]);
   const [activeButton, setActiveButton] = useState("Marvel");
+  const [showModal, setShowModal] = useState(false);
+  const [selectedToy, setSelectedToy] = useState(null);
 
   useEffect(() => {
     const toyItem = toyData?.filter((dt) => dt.subcategory === activeButton);
@@ -15,6 +18,15 @@ const Shop = ({ toyData }) => {
     const toyItem = toyData?.filter((dt) => dt.subcategory === e.target.name);
     setData(toyItem);
     setActiveButton(e.target.name);
+  };
+
+  const openModal = (toy) => {
+    setSelectedToy(toy);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -117,11 +129,17 @@ const Shop = ({ toyData }) => {
                           color: "#000",
                           border: "none",
                         }}
+                        onClick={() => openModal(item)}
                       >
-                        view details
+                        View Details
                       </Button>
                     </Card.Body>
                   </Card>
+                  <ToyModal
+                    show={showModal}
+                    handleClose={closeModal}
+                    toy={selectedToy}
+                  />
                 </div>
               </>
             ))}

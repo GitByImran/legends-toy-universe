@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" className="shadow">
         <Container>
           <Navbar.Brand
             href="#home"
@@ -53,19 +53,24 @@ const Header = () => {
               <Link to="/alltoys" className="nav-menu text-decoration-none">
                 All Toys
               </Link>
-              <Link to="/addtoy" className="nav-menu text-decoration-none">
-                Add Toy
-              </Link>
-              <Link to="/mytoys" className="nav-menu text-decoration-none">
-                My Toys
-              </Link>
+              {user && (
+                <>
+                  <Link to="/addtoy" className="nav-menu text-decoration-none">
+                    Add Toy
+                  </Link>
+                  <Link to="/mytoys" className="nav-menu text-decoration-none">
+                    My Toys
+                  </Link>
+                </>
+              )}
               <Link to="/blog" className="nav-menu text-decoration-none">
                 Blogs
               </Link>
             </Nav>
-            <Nav className="ms-auto my-4 d-flex align-items-center">
+            <Nav className="ms-auto my-4">
               <Dropdown>
                 <Dropdown.Toggle
+                  className="user-profile"
                   id="dropdown-basic"
                   style={{ background: "none", border: "none" }}
                 >
@@ -81,14 +86,14 @@ const Header = () => {
                   </div>
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
+                <Dropdown.Menu className="mb-3">
                   <Dropdown.Item href="#">{user?.displayName}</Dropdown.Item>
                   <Dropdown.Item href="#">{user?.email}</Dropdown.Item>
                   <Dropdown.Item href="#">{user?.uid}</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               {user ? (
-                <div>
+                <div className="d-flex align-items-center">
                   <Button className="text-capitalize px-4 text-light">
                     <Link
                       onClick={handleLogOut}

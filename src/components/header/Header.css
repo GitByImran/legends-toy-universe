@@ -7,6 +7,7 @@
   font-size: 1.2rem;
   font-weight: 500;
 }
+
 .profile {
   width: 45px;
   height: 45px;
@@ -22,4 +23,13 @@
 .dropdown-toggle::after {
   position: absolute;
   visibility: hidden;
+}
+@media screen and (max-width: 992px) {
+  .user-profile {
+    margin: 0 0 10px 0 !important;
+    padding: 0 !important;
+  }
+  #basic-navbar-nav {
+    margin-top: 20px !important;
+  }
 }

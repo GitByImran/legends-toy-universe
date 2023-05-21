@@ -5,12 +5,12 @@ const UpdateToy = ({ toyId, handleClose }) => {
   const [toyData, setToyData] = useState({});
   const [loading, setLoading] = useState(true);
 
+  console.log(toyId);
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
     const quantity = form.quantity.value;
     const price = form.price.value;
-
     const description = form.description.value;
     const updateToDb = {
       quantity,
@@ -49,7 +49,7 @@ const UpdateToy = ({ toyId, handleClose }) => {
           <Form.Control as="textarea" name="description" />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="mt-3">
           Update Toy
         </Button>
       </Form>

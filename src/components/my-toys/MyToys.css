@@ -1,6 +1,6 @@
 .my-toy-image {
     height: 100px;
-    width: 100px;
+    min-width: 100px;
     overflow: hidden;border: 1px solid green;
 }
 .my-toy-image img {
@@ -8,4 +8,9 @@
     width: 100%;
     object-fit: cover;
     object-position: top;
+}
+.my-toy-card.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

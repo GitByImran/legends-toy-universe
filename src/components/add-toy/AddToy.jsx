@@ -128,7 +128,7 @@ const AddToy = () => {
               <Form.Label className="fw-bold">Rating</Form.Label>
               <Form.Control
                 name="rating"
-                type="number"
+                type="text"
                 placeholder="Enter rating"
                 required
               />

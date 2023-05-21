@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
+
 const ToyModal = ({ show, handleClose, toy }) => {
   if (!toy) {
     return null; // If toy is null, return null or render an alternative component/message

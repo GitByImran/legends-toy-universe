@@ -1,4 +1,7 @@
-/*  */
+/* .............................................................. */
+.banner {
+  padding: 50px 0;
+}
 .slider-image {
   width: 600px;
   height: 400px;
@@ -12,7 +15,9 @@
 .swiper-pagination-bullets {
   display: none;
 }
-/*  */
+
+/* .............................................................. */
+
 .shop-category-toys {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -20,7 +25,16 @@
   gap: 30px;
 }
 
-/*  */
+.tab-button-less {
+  border-bottom: 2px solid #fff;
+}
+.tab-button-add {
+  border: 2px solid #fff;
+  border-bottom: 0px;
+  background: #0a58ca;
+}
+
+/* .............................................................. */
 
 .gallery-grid {
   display: grid;
@@ -89,6 +103,8 @@
   }
 }
 
+/* .............................................................. */
+
 @media screen and (max-width: 768px) {
   /* from shop jsx */
   .shop-category-toys {
@@ -100,5 +116,23 @@
   /* from gallery jsx */
   .gallery-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+/* .............................................................. */
+
+@media screen and (max-width: 576px) {
+  /* from shop jsx */
+  .tab-button {
+    display: flex;
+    flex-direction: column;
+  }
+  .tab-button-less {
+    border: 0px;
+  }
+  .tab-button-add,
+  .tab-button-add:hover {
+    border: 2px solid #fff;
+    background: #0a58ca;
   }
 }

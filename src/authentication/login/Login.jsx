@@ -25,10 +25,8 @@ const Login = () => {
         const loggedUser = result.user;
         setError("");
         navigate(from, { replace: true });
-        console.log(loggedUser);
       })
       .catch((error) => {
-        console.log(error.message);
         setError(error.message);
       });
   };
@@ -38,7 +36,6 @@ const Login = () => {
       .then((result) => {
         const getGoogleAcc = result.user;
         navigate(from, { replace: true });
-        console.log(getGoogleAcc);
       })
       .catch((error) => {});
   };

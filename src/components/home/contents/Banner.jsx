@@ -22,14 +22,16 @@ const Banner = () => {
         <Row className="d-flex justify-content-center align-items-center">
           <Col md={6} className="text-col">
             <div className="text-container">
-              <h1>Welcome to Our Website</h1>
-              <h3>Discover Something Wonderful</h3>
+              <h1 className="fw-bold">Welcome to Legends Toy Universe</h1>
+              <h3 className="fs-5 my-4">
+                Here Joy and Adventure Come to Life!
+              </h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                euismod vehicula lorem, sed rutrum lectus maximus a. Duis
-                consectetur, velit non tristique dapibus, lorem augue gravida
-                mi, et ultrices lacus est ut est. Nullam iaculis consectetur
-                felis nec consectetur.
+                Discover a world of joy and imagination at our online toy shop.
+                Explore a wide selection of toys for all ages, featuring popular
+                franchises like Avengers, DC Comics, Star Wars, and Marvels.
+                Shop now and bring smiles to your little ones with the perfect
+                toys for endless fun
               </p>
             </div>
           </Col>

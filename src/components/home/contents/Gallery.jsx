@@ -28,10 +28,12 @@ const GallerySection = () => {
   };
 
   return (
-    <Container>
+    <Container className="">
       <div className="gallery-section">
-        <h2>Gallery</h2>
-        <div className="gallery-grid">
+        <h2 className="text-center text-muted fw-bold my-4 py-2">
+          Explore Our Spectacular Toy Gallery!
+        </h2>
+        <div className="gallery-grid mt-5">
           {images.map((image, index) => (
             <div
               key={index}

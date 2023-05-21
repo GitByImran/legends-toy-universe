@@ -16,9 +16,9 @@ const AllToys = () => {
       const response = await axios.get(
         "https://legends-toy-universe-server-gitsbyimran.vercel.app/toys"
       );
-      const limitedData = response.data.slice(0, 20);
-      setData(limitedData);
-      setFilteredData(limitedData);
+      // const limitedData = response.data.slice(0, 20);
+      setData(response.data);
+      setFilteredData(response.data);
       setLoading(false);
     } catch (error) {
       console.error(error);

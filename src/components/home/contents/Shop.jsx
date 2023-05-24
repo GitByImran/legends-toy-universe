@@ -36,9 +36,9 @@ const Shop = ({ toyData }) => {
   };
 
   return (
-    <div className="my-5">
+    <div className="mt-5 mb-3">
       <Container>
-        <div className="p-4 border" style={{ background: "#afe3f3" }}>
+        <div className="p-4" style={{ background: "" }}>
           <Row>
             <h2 className="text-muted text-capitalize text-center fw-bold mt-3 mb-5">
               see our product by categories

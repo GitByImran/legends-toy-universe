@@ -26,7 +26,9 @@ const TestimonialSection = () => {
   return (
     <section className="testimonial-section py-5">
       <Container>
-        <h2 className="text-center mb-4">Testimonials</h2>
+        <h2 className="text-muted text-capitalize text-center fw-bold mb-5">
+          Testimonials
+        </h2>
         <Row>
           {testimonials.map((testimonial) => (
             <Col key={testimonial.id} xs={12} md={4}>

@@ -23,9 +23,8 @@ const UpdateToy = ({ toyId, handleClose, handleUpdateSuccess }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        handleUpdateSuccess(); // Call the handleUpdateSuccess function
-        handleClose(); // Close the modal
+        handleUpdateSuccess();
+        handleClose();
       });
 
     form.reset();

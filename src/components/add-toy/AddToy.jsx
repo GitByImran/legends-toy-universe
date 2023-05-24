@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import ChangeTitle from "../../ChangeTitle";
 
 const AddToy = () => {
   const handleAddToy = (e) => {
@@ -38,7 +39,9 @@ const AddToy = () => {
       body: JSON.stringify(addToDb),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then(() => {
+        alert("Toy added successfully");
+      });
 
     form.reset();
   };
@@ -162,6 +165,7 @@ const AddToy = () => {
           </Button>
         </Form>
       </Container>
+      <ChangeTitle />
     </div>
   );
 };

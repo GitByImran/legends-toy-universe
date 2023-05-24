@@ -3,6 +3,7 @@ import { AuthContext } from "../../authentication/provider/Provider";
 import { Container, Tab, Table } from "react-bootstrap";
 import MyToysCard from "./MyToysCard";
 import { motion } from "framer-motion";
+import ChangeTitle from "../../ChangeTitle";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -61,14 +62,7 @@ const MyToys = () => {
           </button>
           {/* Add more sorting options if needed */}
         </div>
-        <motion.div
-          key={details.length}
-          animate={{ opacity: 1, transition: { duration: 0.5 } }}
-          initial={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-          layout
-          className="all-toys"
-        >
+        <div key={details.length} className="all-toys">
           <Table striped bordered hover>
             <thead>
               <tr>
@@ -94,8 +88,9 @@ const MyToys = () => {
               ))}
             </tbody>
           </Table>
-        </motion.div>
+        </div>
       </Container>
+      <ChangeTitle />
     </div>
   );
 };

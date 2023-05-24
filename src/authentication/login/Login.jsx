@@ -43,7 +43,10 @@ const Login = () => {
   return (
     <>
       <Container className="py-5">
-        <Form className="w-50 mx-auto p-5 border shadow" onSubmit={handleLogin}>
+        <Form
+          className="w-50 sm:w-100 mx-auto p-5 border shadow login-form"
+          onSubmit={handleLogin}
+        >
           <Form.Text className="text-muted fs-3 fw-bold">Login</Form.Text>
           <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>

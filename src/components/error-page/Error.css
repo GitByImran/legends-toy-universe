@@ -1,14 +1,19 @@
 .error-page {
     display: flex;
+    flex-direction: column-reverse;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px;
 }
+.error-text {
+    text-align: center;
+}
 .error-text h2 {
     font-size: 100px;
-    color: #9873ff;
+    color: #0099ff;
+    font-weight: 900;
 }
 .error-text p {
     font-size: 50px;
@@ -16,7 +21,7 @@
     text-transform: capitalize;
 }
 .error-img {
-    max-width: 500px;
+    max-width: 300px;
 }
 .error-img img {
     max-width: 100%;
@@ -25,7 +30,7 @@
     padding: 15px 20px;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(45deg, #7e90fe, #9873ff);
+    background: #0099ff;
     color: #fff;
     font-size: 16px;
     font-weight: 500;

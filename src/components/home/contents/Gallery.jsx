@@ -7,16 +7,21 @@ const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const images = [
-    "https://dummyimage.com/400x300/000/fff",
-    "https://dummyimage.com/400x300/333/fff",
-    "https://dummyimage.com/400x300/666/fff",
-    "https://dummyimage.com/400x300/999/fff",
-    "https://dummyimage.com/400x300/aaa/fff",
-    "https://dummyimage.com/400x300/ccc/fff",
-    "https://dummyimage.com/400x300/eee/fff",
-    "https://dummyimage.com/400x300/111/fff",
-    "https://dummyimage.com/400x300/222/fff",
-    "https://dummyimage.com/400x300/444/fff",
+    "https://i.ibb.co/GsnMP9S/Screenshot-20230522-143108-Chrome.jpg",
+
+    "https://i.ibb.co/qRKvmf0/Screenshot-20230522-142705-Chrome.jpg",
+
+    "https://i.ibb.co/PchMX4Y/Screenshot-20230522-141356-Chrome.jpg",
+
+    "https://i.ibb.co/FbCn7X1/Screenshot-20230522-141855-Chrome.jpg",
+
+    "https://i.ibb.co/wWLRBDr/Screenshot-20230522-141911-Chrome.jpg",
+
+    "https://i.ibb.co/SdzjQjs/Screenshot-20230522-141925-Chrome.jpg",
+
+    "https://i.ibb.co/dfLd52D/Screenshot-20230522-141937-Chrome.jpg",
+
+    "https://i.ibb.co/0hm9L4q/Screenshot-20230522-141948-Chrome.jpg",
   ];
 
   const handleImageClick = (image) => {
@@ -37,10 +42,10 @@ const GallerySection = () => {
           {images.map((image, index) => (
             <div
               key={index}
-              className="gallery-item"
+              className="gallery-item border"
               onClick={() => handleImageClick(image)}
             >
-              <img src={image} alt={`Image ${index + 1}`} />
+              <img className="p-2" src={image} alt={`Image ${index + 1}`} />
             </div>
           ))}
         </div>

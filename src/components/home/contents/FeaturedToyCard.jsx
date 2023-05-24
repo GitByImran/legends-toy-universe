@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import "../Home.css";
 
 const FeaturedToyCard = ({ toy }) => {
   const { id, image, name, price } = toy;

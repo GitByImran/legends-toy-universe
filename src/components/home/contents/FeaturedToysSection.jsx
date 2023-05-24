@@ -25,9 +25,11 @@ const FeaturedToysSection = () => {
   ];
 
   return (
-    <section className="featured-toys-section py-5">
+    <section className="featured-toys-section ">
       <Container>
-        <h2 className="text-center mb-4">Featured Toys</h2>
+        <h2 className="text-muted text-capitalize text-center fw-bold mt-3 mb-5">
+          Featured Toys
+        </h2>
         <Row>
           {featuredToys.map((toy) => (
             <Col key={toy.id} xs={12} md={4}>

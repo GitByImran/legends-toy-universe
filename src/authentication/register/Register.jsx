@@ -22,7 +22,7 @@ const Register = () => {
         const newUser = result.user;
         updateUserProfile(name, photoURL);
         setError("");
-        console.log(newUser);
+        alert("Register succesfull, user created");
       })
       .catch((error) => {
         setError(error.message);

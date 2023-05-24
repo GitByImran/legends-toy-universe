@@ -3,8 +3,12 @@ import "./MyToys.css";
 import { Card, Button, Modal } from "react-bootstrap";
 import UpdateToy from "./contents/UpdateToy";
 import { Link } from "react-router-dom";
+import ToyModal from "../toy-modal/ToyModal";
 
 const MyToysCard = ({ toys, index, handleDelete, setUpdateTrigger }) => {
+  const [showUpdateModal, setshowUpdateModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   const {
     _id,
     picture,
@@ -19,16 +23,18 @@ const MyToysCard = ({ toys, index, handleDelete, setUpdateTrigger }) => {
     serial,
     description,
   } = toys;
-  console.log(toys);
 
-  const [showModal, setShowModal] = useState(false);
-
-  const handleUpdate = () => {
+  const handleShowModal = () => {
     setShowModal(true);
   };
 
+  const handleUpdate = () => {
+    setshowUpdateModal(true);
+  };
+
   const handleCloseModal = () => {
-    setShowModal(false);
+    setshowUpdateModal(false);
+    alert("Updated successfully");
   };
 
   const handleUpdateSuccess = () => {
@@ -45,7 +51,9 @@ const MyToysCard = ({ toys, index, handleDelete, setUpdateTrigger }) => {
         <td>{price}</td>
         <td>{quantity}</td>
         <td className="text-center fw-bold">
-          <Link className="text-decoration-none">Details</Link>
+          <Link className="text-decoration-none" onClick={handleShowModal}>
+            Details
+          </Link>
         </td>
         <td className="text-center fw-bold">
           <Link className="text-decoration-none" onClick={handleUpdate}>
@@ -61,7 +69,14 @@ const MyToysCard = ({ toys, index, handleDelete, setUpdateTrigger }) => {
           </Link>
         </td>
       </tr>
-      <Modal show={showModal} onHide={handleCloseModal}>
+
+      <ToyModal
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+        toy={toys}
+      />
+
+      <Modal show={showUpdateModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Update Toy</Modal.Title>
         </Modal.Header>
@@ -69,7 +84,7 @@ const MyToysCard = ({ toys, index, handleDelete, setUpdateTrigger }) => {
           <UpdateToy
             toyId={_id}
             handleClose={handleCloseModal}
-            handleUpdateSuccess={handleUpdateSuccess} // Pass the handleUpdateSuccess function as a prop
+            handleUpdateSuccess={handleUpdateSuccess}
           />
         </Modal.Body>
       </Modal>

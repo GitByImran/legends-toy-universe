@@ -4,6 +4,7 @@ import AllToyCard from "./AllToyCard";
 import "./AllToys.css";
 import { Container, Table } from "react-bootstrap";
 import { motion } from "framer-motion";
+import ChangeTitle from "../../ChangeTitle";
 
 const AllToys = () => {
   const [data, setData] = useState([]);
@@ -101,6 +102,7 @@ const AllToys = () => {
           </Table>
         </motion.div>
       </Container>
+      <ChangeTitle />
     </div>
   );
 };
